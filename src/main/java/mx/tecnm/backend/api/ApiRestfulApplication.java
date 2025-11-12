@@ -1,4 +1,4 @@
-package mx.tecnm.backend.api;
+package mx.tecnm.backend.api.controllers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

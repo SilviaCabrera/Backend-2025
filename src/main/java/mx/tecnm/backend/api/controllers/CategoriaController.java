@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import mx.tecnm.backend.api.models.Categoria;
 import mx.tecnm.backend.api.repository.CategoriaDAO;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -42,4 +43,15 @@ public class CategoriaController {
         Categoria categoriaCreada = repo.crearCategoria(nuevaCategoria);
         return ResponseEntity.ok(categoriaCreada);
     }
+
+   @PutMapping("/{id}")
+public ResponseEntity<Categoria> actualizarCategoria(@PathVariable int id, @RequestParam String nombreNuevo) {
+    Categoria categoriaActualizada = repo.actualizarCategoria(id, nombreNuevo);
+    if (categoriaActualizada == null) {
+        return ResponseEntity.notFound().build();
+    } else {
+        return ResponseEntity.ok(categoriaActualizada);
+    }
+}
+
 }

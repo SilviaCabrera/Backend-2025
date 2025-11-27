@@ -33,4 +33,16 @@ public class CategoriaDAO{
         return jdbcClient.sql(sql).param(nuevaCategoria).query(new CategoriaRM()).optional()
             .orElse(null);
     }
+
+
+    public Categoria actualizarCategoria(int id, String nombreNuevo) {
+    String sql = """
+        UPDATE categorias
+        SET nombre = ?
+        WHERE id = ?
+        RETURNING id, nombre
+    """;
+    return jdbcClient.sql(sql).param(nombreNuevo).param(id).query(new CategoriaRM()).optional().orElse(null);
+}
+
 }

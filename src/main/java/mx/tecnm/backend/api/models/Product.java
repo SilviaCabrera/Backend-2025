@@ -10,4 +10,8 @@ public class Product{
         this.codeBar = codeBar;
         this.price = price;
     }
+
+    public String getName() { return name; }
+    public String getCodeBar() { return codeBar; }
+    public double getPrice() { return price; }
 }

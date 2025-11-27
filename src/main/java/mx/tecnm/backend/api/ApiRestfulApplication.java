@@ -1,4 +1,4 @@
-package mx.tecnm.backend.api.controllers;
+package mx.tecnm.backend.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApiRestfulApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApiRestfulApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ApiRestfulApplication.class, args);
+    }
 
 }

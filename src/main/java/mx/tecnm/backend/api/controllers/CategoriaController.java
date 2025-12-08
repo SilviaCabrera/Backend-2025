@@ -5,13 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;  
 import mx.tecnm.backend.api.models.Categoria;
 import mx.tecnm.backend.api.repository.CategoriaDAO;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,25 +53,5 @@ public ResponseEntity<Categoria> actualizarCategoria(@PathVariable int id, @Requ
         return ResponseEntity.ok(categoriaActualizada);
     }
 }
-
- @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarCategoria(@PathVariable int id) {
-        boolean eliminado = repo.eliminarCategoria(id);  // ← Cambiado a "repo"
-        if (eliminado) {
-            return ResponseEntity.ok("Categoría desactivada correctamente");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-     @PatchMapping("/{id}/reactivar")
-    public ResponseEntity<String> reactivarCategoria(@PathVariable int id) {
-        boolean reactivado = repo.reactivarCategoria(id);  // ← Cambiado a "repo"
-        if (reactivado) {
-            return ResponseEntity.ok("Categoría reactivada correctamente");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
 
 }

@@ -14,6 +14,7 @@ public class CategoriaRM implements RowMapper<Categoria> {
     public Categoria mapRow(java.sql.ResultSet rs, int rowNum) throws SQLException {
         return new Categoria(
             rs.getInt("id"),
-            rs.getString("nombre") );
+            rs.getString("nombre"),
+            rs.getString("estado") );
     }
 }

@@ -28,7 +28,7 @@ public class UsuarioRM implements RowMapper<Usuario> {
             rs.getString("sexo"),
             fechaNacimiento,
             rs.getString("contrasena"),
-            fechaRegistro,                     // ✅ Ahora es LocalDateTime
+            fechaRegistro,                    
             rs.getString("estado")
         );
     }
